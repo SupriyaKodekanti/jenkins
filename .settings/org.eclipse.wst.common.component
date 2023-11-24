@@ -2,7 +2,7 @@
                 
     
     
-    <wb-module deploy-name="FoodDeliveryApp">
+    <wb-module deploy-name="PharmaApp">
                                 
         
         
@@ -19,14 +19,12 @@
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-                        
-        
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
                                 
         
         
         <property name="java-output-path" value="/SpringBootMVCHibernate/target/classes"/>
-        <property name="context-root" value="FoodDeliveryApp"/>
+        <property name="context-root" value="PharmaApp"/>
                             
     
     
