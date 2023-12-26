@@ -1,5 +1,7 @@
 package com.infinite.repository;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -10,6 +12,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.infinite.model.OrderList;
 import com.infinite.model.VendorLogin;
 @Repository
 @EnableAsync(proxyTargetClass = true)
@@ -41,6 +44,15 @@ public class VendorDaoImpl implements IvendorDao {
 		query.setParameter("password", password);
 		VendorLogin validateuser=(VendorLogin) query.uniqueResult();
 		return validateuser;
+	}
+
+	@Override
+	public List<VendorLogin> getVendors() {
+		// TODO Auto-generated method stub
+		Session session = this.sesfactory.getCurrentSession();
+		Query q = session.createQuery("FROM VendorLogin");
+		List<VendorLogin> ls = q.list();
+		return ls;
 	}
 
 }

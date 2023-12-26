@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.infinite.model.CustomerLogin;
 import com.infinite.model.Product;
 @Repository
 @EnableAsync(proxyTargetClass = true)
@@ -30,7 +31,8 @@ public class ProductDaoImpl implements IProductDao{
 	public List<Product> getAllProducts() {
 		// TODO Auto-generated method stub
 		Session session = this.sesfactory.getCurrentSession();
-		List<Product>ls=session.createQuery("from product").list();
+		Query q =session.createQuery("from Product");
+		List<Product>ls=q.list();
 		return ls;
 	}
 

@@ -1,5 +1,7 @@
 package com.infinite.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +25,12 @@ public class CustomerServiceImpl implements ICustomerService {
 		// TODO Auto-generated method stub
 		return cdaoimpl.validateuser(username, password);
 		
+	}
+
+	@Transactional
+	public List<CustomerLogin> getCustomers() {
+		// TODO Auto-generated method stub
+		return cdaoimpl.getCustomers();
 	}
 	
 

@@ -1,5 +1,7 @@
 package com.infinite.repository;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -12,6 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.infinite.model.CustomerLogin;
+import com.infinite.model.VendorLogin;
 
 @Repository
 @EnableAsync(proxyTargetClass = true)
@@ -41,4 +44,12 @@ public class CustomerDaoImpl implements ICustomerDao {
 		CustomerLogin validateuser=(CustomerLogin) query.uniqueResult();
 		return validateuser;
 		}
+	@Transactional
+	public List<CustomerLogin> getCustomers() {
+		// TODO Auto-generated method stub
+		Session session = this.sesfactory.getCurrentSession();
+		Query q = session.createQuery("FROM CustomerLogin");
+		List<CustomerLogin> ls = q.list();
+		return ls;
+	}
 }

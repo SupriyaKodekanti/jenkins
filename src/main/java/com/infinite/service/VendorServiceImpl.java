@@ -1,5 +1,7 @@
 package com.infinite.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,12 @@ public class VendorServiceImpl implements IVendorService {
 	public VendorLogin validateUser(String username, String password) {
 		// TODO Auto-generated method stub
 		return vdaoimpl.validateuser(username, password);
+	}
+
+	@Transactional
+	public List<VendorLogin> getVendors() {
+		// TODO Auto-generated method stub
+		return vdaoimpl.getVendors();
 	}
 
 }

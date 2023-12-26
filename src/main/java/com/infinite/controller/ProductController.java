@@ -53,7 +53,7 @@ public class ProductController {
 		}
 	}
 	
-	@RequestMapping(value = "/display", method = RequestMethod.POST, headers = "Accept=application/json")
+	@RequestMapping(value = "/display")
 	public List<Product> getAllProducts(){
 		return pserviceimpl.getAllProducts();
 		

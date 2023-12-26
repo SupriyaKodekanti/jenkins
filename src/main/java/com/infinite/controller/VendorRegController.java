@@ -1,5 +1,7 @@
 package com.infinite.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import com.infinite.service.IVendorService;
 public class VendorRegController {
 	@Autowired
 	IVendorService vserviceimpl;
+	
 	@RequestMapping(value = "/vregister", method = RequestMethod.POST, headers = "Accept=application/json")
 	public ResponseEntity<String> addVendor(@RequestBody VendorLogin vendorLogin) {
 		try {
@@ -46,6 +49,11 @@ public class VendorRegController {
         }
        
 	}
-
+	@RequestMapping(value="/getvendor")
+	public List<VendorLogin> getvendor() {
+      
+       return vserviceimpl.getVendors();
+       
+	}
 
 }
