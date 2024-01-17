@@ -25,15 +25,13 @@ public class Admin_OrderDaoImpl implements IAdmin_OrderDao {
 	public void setSesfactory(SessionFactory sesfactory) {
 		this.sesfactory = sesfactory;
 	}
-
 	@Override
 	public List<OrderList> getOrderHistory() {
 		// TODO Auto-generated method stub
 		Session session = this.sesfactory.getCurrentSession();
 		Query q = session.createQuery("FROM OrderHistory");
 		List<OrderList> ls = q.list();
-		return ls;
-		
+		return ls;	
 	}
 
 }
